@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>조합 계산기</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>순열·조합·중복조합·중복순열 계산기</h1>
+    <h3>Craft JJ (임정주) 개발</h3>
+    <hr>
+    <!----------------------------------------------form--------------------------------------------------------->
+    <input type="text" id="n" placeholder="n" size="5">
+    <select id="combSelection">
+        <option value="p">P(순열)</option>
+        <option value="c">C(조합)</option>
+        <option value="h">H(중복조합)</option>
+        <option value="pi">Π(중복순열)</option>
+    </select>
+    <input type="text" id="r" placeholder="r" size="5">
+    <input type="button" value="calculate!" onclick="task()">
+    <!--------------------------------------------result--------------------------------------------------------->
+    <p id="result"></p>
+</body>
+
+</html>

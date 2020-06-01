@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>RGB Color Picker</title>
+
+        <script>
+            var r,g,b;
+            function Hex(c) 
+            {
+                var hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
+            }
+            function saveVal(n)
+            {
+                if (n==1)
+                {
+                    r=document.getElementById("red").value;
+                    g=document.getElementById("green").value;
+                    b=document.getElementById("blue").value;
+
+                    document.getElementById("rVal").value=r;
+                    document.getElementById("gVal").value=g;
+                    document.getElementById("bVal").value=b;
+                }
+                else
+                {
+                    r=document.getElementById("rVal").value; r=r>255?255:r;
+                    g=document.getElementById("gVal").value; g=g>255?255:g;
+                    b=document.getElementById("bVal").value; b=b>255?255:b;
+                    
+                    document.getElementById("rVal").value=r;
+                    document.getElementById("gVal").value=g;
+                    document.getElementById("bVal").value=b;
+
+                    document.getElementById("red").value=r;
+                    document.getElementById("green").value=g;
+                    document.getElementById("blue").value=b;
+                }
+                
+            }
+            function chgColor(n)
+            {
+                saveVal(n);
+                
+                document.getElementById("body").style.backgroundColor='rgb(' + r + ',' + g + ',' + b + ')';
+                
+                hex.innerHTML="#"+Hex(parseInt(r))+Hex(parseInt(g))+Hex(parseInt(b));
+            }
+            window.onload=function()
+            {
+                document.getElementById("rVal").value=r=0;
+                document.getElementById("gVal").value=g=0;
+                document.getElementById("bVal").value=b=0;
+                chgColor(0);
+            }
+           
+        </script>
+
+        <style>
+            table
+            {
+                width:500px;
+                border:solid 3px;
+                border-collapse: collapse;
+                border-color: black;
+            }
+            .l
+            {
+                font-weight: normal;
+                border:1px solid;
+                border-collapse: collapse;
+                border-color: black;
+                background-color: white;
+            }
+            .b
+            {
+                font-weight: bold;
+                border:1px solid;
+                border-bottom: double;
+                border-collapse: collapse;
+                border-color: black;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <table id="t">
+            <tr>
+                <th class="b">Red</th>
+                <th class="b">Green</th>
+                <th class="b">Blue</th>
+            </tr>
+            <tr>
+                <th class="l"><input type="text" id="rVal"  onchange="chgColor(0)"></th>
+                <th class="l"><input type="text" id="gVal"  onchange="chgColor(0)"></th>
+                <th class="l"><input type="text" id="bVal"  onchange="chgColor(0)"></th>
+            </tr>
+            <tr>
+                <th class="l"><input type="range" id="red" min="0" max="255" step="1" onchange="chgColor(1)"  ></th>
+                <th class="l"><input type="range" id="green" min="0" max="255" step="1" onchange="chgColor(1)"></th>
+                <th class="l"><input type="range" id="blue" min="0" max="255" step="1" onchange="chgColor(1)" ></th>
+            </tr>
+            <tr>
+                <th id="hex" class="l" colspan="3"></th>
+            </tr>
+        </table>
+
+        
+    </body>
+</html>

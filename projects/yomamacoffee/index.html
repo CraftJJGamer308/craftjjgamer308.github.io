@@ -1,0 +1,89 @@
+
+<HTML>
+	<HEAD>
+		<TITLE> Vending Machine </TITLE>
+		 <script>
+			var x;
+			var y; //À½·å°ª...
+
+			function cancel()
+			{
+				x=eval(document.form1.in.value);
+				alert("Canceled successfully.");
+				document.form1.in.value=0;
+				document.form1.out.value=x;
+
+			}
+			function input()
+			{
+				x=eval(document.form1.in.value);
+				if(x<y)
+				{
+					
+					alert("You are too poor to buy this gorgeous drink. You gotta get extra $"+(y-x)+".");
+					document.form1.in.value=0;
+					document.form1.out.value=x;
+				}
+			}
+			function f1()
+			{
+				y=10000;
+				input();
+				if(x>=y)
+				{
+					alert("You can take this gorgeous Coca-Cola drink!");
+					document.form1.in.value=0;
+					document.form1.out.value=x-y;
+				}
+			}
+			function f2()
+			{
+				y=1500;
+				input();
+				if(x>=y)
+				{
+					alert("You can take this gorgeous Sprite drink!");
+					document.form1.in.value=0;
+					document.form1.out.value=x-y;
+				}
+			}
+			function f3()
+			{
+				y=5000;
+				input();
+				if(x>=y)
+				{
+					alert("You can take this gorgeous Fanta drink!");
+					document.form1.in.value=0;
+					document.form1.out.value=x-y;
+				}
+			}
+			
+		 </script>
+	</HEAD>
+
+	<BODY bgcolor = pink>
+		<font color=blue size="1">
+			https://www.youtube.com/CraftJJ
+		</font>
+		<center>
+			<font color=RED>
+				<h1>Vending Machine</h1>
+				<img id="CocaCola" src=CocaCola.png width = 250>
+				<h3><i>Made by CRAFTJJGAMER_CCCVIII</i></h3>
+				<form name="form1">
+					coins ($): <input type="text" size=20 name="in" > <br>
+					
+					<h4>M E N U</h4><BR>
+					1. <input type="button" value="Coca-Cola" onclick=f1() color =#FFF8DC> $10000<br><br>
+					2. <input type="button" value="Sprite" onclick=f2() color =#FFF8DC> $1500<br><br> 
+					3. <input type="button" value="Fanta" onclick=f3() color =#FFF8DC> $5000<br><br><br><br>
+					<input type="button" value="CANCEL AND REFUND   (Only for VIP)" onclick=cancel() > <br><br>
+				
+					RETURN CHANGE ($): <input type="text" size=20 name="out" > <br>
+
+				</form>
+			</font>	
+		</center>
+	</BODY>
+</HTML>

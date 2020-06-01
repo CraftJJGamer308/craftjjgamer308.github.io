@@ -1,0 +1,42 @@
+<!--2018-07-14-->
+<html>
+    <head>
+        <title>PICTURE MOVING</title>
+        <script>
+            var top=0,left=0,hx=15,start,tev;
+            window.onload=function()
+            {
+                start=left=document.body.scrollWidth;
+                tev=setInterval("img();",50);
+            }
+            function img()
+            {
+                
+                var obj=document.getElementById("img");
+                obj.style.top=top;
+                obj.style.left=left;
+                left=left-hx;
+                
+                if(left<0)
+                {
+                    left=0; hx*=-1;
+                }
+                if(left+200>start)
+                {
+                    left=start-200; 
+                    hx*=-1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>BALL MOVING MoudhaPhouqers</h1>
+        <p style="color:magenta">
+            Made by the kaiser of the craft jj nation - CRAFTJJGAMER-CCCVIII
+        </p>
+        <hr><br>
+        <form name="frm">
+            <img src="ball.jpg" id="img" style="position:absolute" width="200">
+        </form>
+    </body>
+</html>

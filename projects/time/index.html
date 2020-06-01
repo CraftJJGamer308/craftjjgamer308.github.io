@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+            var tev;
+            window.onload=function()
+            {
+                tev=setInterval("time();",10);
+            }
+            function time()
+            {
+                document.getElementById('time').innerHTML = Date()
+            }
+        </script>
+        <title>Time</title>
+    </head>
+    <body>
+        <p id="time"></p>
+    </body>
+</html>

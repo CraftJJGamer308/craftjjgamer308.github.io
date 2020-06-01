@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ColorTester</title>
+        <script>
+            function Hex(c) 
+            {
+                var hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
+            }
+
+            function changeBGColor()
+            {
+                var body=document.getElementById("body");
+                var btn=document.getElementById("btn");
+                var p=document.getElementById("paragraph");
+                var r=parseInt(Math.random()*256);
+                var g=parseInt(Math.random()*256);
+                var b=parseInt(Math.random()*256);
+                var str=""
+
+                body.style.backgroundColor='rgb(' + r + ',' + g + ',' + b + ')';
+                btn.style.color='rgb(' + r + ',' + g + ',' + b + ')';
+                btn.style.backgroundColor='rgb(' + (256-r) + ',' + (256-g) + ',' + (256-b) + ')';
+                p.style.color='rgb(' + (256-r) + ',' + (256-g) + ',' + (256-b) + ')';
+                str='rgb(' + r + ',' + g + ',' + b + ')'
+                r=Hex(r);
+                g=Hex(g);
+                b=Hex(b);
+                str+="\n#"+r+g+b;
+                p.innerHTML=str;
+            }
+        </script>
+    </head>
+    <body id="body">
+        <input type="button" id="btn" onclick="changeBGColor()" value="Get Random Color">
+        <p id="paragraph"></p>
+    </body>
+
+</html>

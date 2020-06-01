@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>나라이름 대기</title>
+    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+    <div id="header">
+        <h1 class="rainbow">나라이름 대기 게임</h1>
+        <a href="https://youtube.com/CraftJJ">임정주 제작</a>
+    </div>
+    
+    <!--------------------------------------------------------------------------->
+    <div id="checkbox">
+        <input type="checkbox" class="continent" value="southAmerica"> <label for="southAmerica"><span>남아메리카</span></label>
+        <input type="checkbox" class="continent" value="northAmerica"> <label for="northAmerica"><span>북아메리카</span></label>
+        <input type="checkbox" class="continent" value="asia"> <label for="asia"><span>아시아</span></label>
+        <input type="checkbox" class="continent" value="africa"> <label for="africa"><span>아프리카</span></label>
+        <input type="checkbox" class="continent" value="europe"> <label for="europe"><span>유럽</span></label>
+        <input type="checkbox" class="continent" value="oceania"> <label for="oceania"><span>오세아니아</span></label>
+
+    </div>
+    <!--------------------------------------------------------------------------->
+    <input type="button" value="게임 시작" onclick="game();"> 
+    <p id="status">대륙을 선택하신 후 '게임 시작' 버튼을 누르십시오.</p>
+    <!--------------------------------------------------------------------------->
+    <div id="inputForm">
+        <input type="text" id="answer">
+        <input type="button" value="답변" id="submit">
+        <input type="button" value="포기" id="quit">    
+    </div>
+
+    <p id="list">
+        대답한 나라 목록: <br>
+    </p>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

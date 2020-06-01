@@ -1,0 +1,70 @@
+<HTML>
+    <HEAD>
+        <TITLE> 등속운동 - 공 튀기기 </TITLE>
+        <script>
+            var boxx=20, boxy=30;
+            var boxwidth=550, boxheight=450;
+            var ballrad=10;
+            var boxboundx=boxwidth+boxx-ballrad;
+            var boxboundy=boxheight+boxy-ballrad;
+            var inboxboundx=boxx+ballrad;
+            var inboxboundy=boxy+ballrad;
+            
+            var ballx=50; bally=60;
+            var ballvx=4; ballvy=8;
+            var ctx;
+
+            function init(){
+                ctx=document.getElementById('canvas').getContext('2d');
+                ctx.lineWidth=ballrad;
+                ctx.fillStyle="slateblue";
+                moveball();
+                setInterval(moveball, 1);
+        
+            }
+        
+            function moveball(){
+                ctx.clearRect(boxx, boxy, boxwidth, boxheight);
+                movecheck();
+                
+                ctx.beginPath();
+                ctx.arc(ballx, bally, ballrad, 0, Math.PI*2, true);
+                ctx.fill();
+                ctx.strokeRect(boxx, boxy, boxwidth, boxheight);
+            }
+        
+            function movecheck(){
+                var nballx=ballx+ballvx;
+                var nbally=bally+ballvy;
+                if (nballx>boxboundx)
+                {
+                    ballvx*=-1;
+                    nballx=boxboundx;
+                }
+                if (nbally>boxboundy)
+                {
+                    ballvy*=-1;
+                    nbally=boxboundy;
+                }
+                if (nballx<inboxboundx)
+                {
+                    ballvx*=-1;
+                    nballx=inboxboundx;
+                }
+                if (nbally<inboxboundy)
+                {
+                    ballvy*=-1;
+                    nbally=inboxboundy;
+                }
+                ballx=nballx;
+                bally=nbally;
+            }
+        
+        </script>
+    </HEAD>
+    
+    <BODY onLoad="init();" style="text-align:center; background-color: pink;">
+        
+        <canvas id="canvas" width="600" height="500">
+    </BODY>
+   </HTML>
