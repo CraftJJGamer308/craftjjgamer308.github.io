@@ -1,0 +1,48 @@
+<!--This is a calculator made my CRAFTJJGAMER-CCCVIII. Do not copy without permission
+Copyright CRAFTJJGAMER-CCCVIII, 2018-07-14 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GCD Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script>
+            function gcd()
+            {
+                var a,b,str="";
+                a=document.getElementById("in1").value;
+                b=document.getElementById("in2").value;
+                
+                str += ("Made with the Euclidean Algorithm <br><br>Calculating steps:<br>");
+                str += ('( '+a+" , "+b+" )"+"<br>");
+                while (a!=0&&b!=0)
+                {
+                    if (a>b)
+                        a=a%b;
+                    else
+                        b=b%a;
+                    str += ('( '+a+" , "+b+" )"+"<br>");
+                }
+                str += ("Greatest Common Divisor : "+(a==0?b:a));
+                document.getElementById("ans").innerHTML = str;
+            }
+        </script>
+    </head>
+    <body style="background-color:rgb(49, 49, 49);text-align:center">
+        <h1 style="color:yellowgreen">GCD CALCULATOR</h1>
+        <h3 style="color:yellow">Made by CRAFTJJGAMER-CCCVIII</h3>
+        <p style="color:orangered;">GCD: Greatest Common Devisor</p> 
+        <hr>
+
+        <p style="color:violet;">
+            Input 2 integers:
+        </p>
+        <form name="frm">
+            <input type="text" size=30 id="in1" placeholder="1st integer"> <br>
+            <input type="text" size=30 id="in2" placeholder="2nd integer"> <br><br>
+            <input type="button" id="btn" style="background-color: black;color: yellow" value="GET GCD" onclick=gcd()> <br>
+        </form>
+        <p id="ans" style="color:yellow"></p>
+    </body>
+</html> 

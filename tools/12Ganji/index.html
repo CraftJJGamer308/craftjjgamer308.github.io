@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>12GanjiCalculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script>
+            function main()
+            {
+                var year;
+                var c, j;//c: 천간 j:지지 
+                var str="";
+                c=j=0;
+                year=document.getElementById("year").value; //year input
+                
+                year = (year - 4) % 60; // 기원후 최초 갑자년: 4년 
+                
+                //alert(year);
+                while (year > 0)
+                {
+                    c++;
+                    j++;
+                    
+                    if (c == 10) c = 0;
+                    if (j == 12) j = 0;
+                    
+                    year-=1;
+                }
+                
+                switch (c)
+                {
+                    case 0:
+                        str += ("갑");
+                        break;
+                    case 1:
+                        str += ("을");
+                        break;
+                    case 2:
+                        str += ("병");
+                        break;
+                    case 3:
+                        str += ("정");
+                        break;
+                    case 4:
+                        str += ("무");
+                        break;
+                    case 5:
+                        str += ("기");
+                        break;
+                    case 6:
+                        str += ("경");
+                        break;
+                    case 7:
+                        str += ("신");
+                        break;
+                    case 8:
+                        str += ("임");
+                        break;
+                    case 9:
+                        str += ("계");
+                        break;
+                }
+                
+                switch (j)
+                {
+                    case 0:
+                        str += ("자");
+                        break;
+                    case 1:
+                        str += ("축");
+                        break;
+                    case 2:
+                        str += ("인");
+                        break;
+                    case 3:
+                        str += ("묘");
+                        break;
+                    case 4:
+                        str += ("진");
+                        break;
+                    case 5:
+                        str += ("사");
+                        break;
+                    case 6:
+                        str += ("오");
+                        break;
+                    case 7:
+                        str += ("미");
+                        break;
+                    case 8:
+                        str += ("신");
+                        break;
+                    case 9:
+                        str += ("유");
+                        break;
+                    case 10:
+                        str += ("술");
+                        break;
+                    case 11:
+                        str += ("해");
+                        break;
+                }
+                
+                str += ("년");
+                
+                document.getElementById("result").innerHTML=str;
+            }
+
+        </script>
+        <style></style>
+    </head>
+    <body>
+        <h1>12간지 계산기</h1> <hr>
+        <p>
+            연도를 입력하십시오: <br>
+            <input type="text" id="year">
+            <input type="button" value="submit" onclick="main()">
+        </p>
+        <p id="result"></p>
+    </body>
+</html>

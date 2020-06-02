@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Prime Factoring</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0;”>
+        <meta http-equiv=" X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style/style.css">
+    <script>
+        function prime(x) {
+            var i;
+            var count = 0;
+            if (x == 2)
+                return true;
+
+            for (i = 1; i <= Math.sqrt(x); i += 2) {
+                if (x % i == 0)
+                    count += 1;
+                if (count >= 2)
+                    return false;
+            }
+            return true;
+        }
+
+        function factor() {
+            var x = document.getElementById("num").value,
+                i = 2,
+                exp = 0;
+            var str = x + " = ";
+
+            if (x < 2) {
+                document.getElementById("result").innerHTML = "UNABLE TO PRIME FACTOR " + x;
+                return;
+            }
+
+            do {
+                if (prime(i) == true) {
+                    if (x % i == 0) {
+                        while (x % i == 0) {
+                            x /= i;
+                            exp += 1;
+                        }
+                        str += (i + "<sup>" + (exp != 1 ? exp : '') + "</sup>" + " × ");
+                        exp = 0;
+                    }
+                }
+                i += (i == 2) ? 1 : 2;
+            } while (x != 1);
+
+            str = str.slice(0, -2);
+            document.getElementById("result").innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Prime Factor Calculator</h1>
+    <p>Made by CraftJJGamer308</p>
+
+    <div>
+        <input type="text" id="num" placeholder="Input an integer" autocomplete="off">
+        <input type="button" id="btn" onclick="factor();" value="Calculate">
+
+    </div>
+
+    <p id="result">ENTER AN INTEGER AND CLICK CALCULATE‪</p>
+</body>
+
+</html>
